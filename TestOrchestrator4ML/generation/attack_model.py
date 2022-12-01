@@ -31,6 +31,7 @@ def calculate_k(X_train, X_test, y_train, y_test):
     print("selected k = " + str(2 * (max_index + 1) + 1))
     return (2 * (max_index + 1) + 1)
     
+echo "hallo world"
 
 def keras_model():
     model = Sequential()
