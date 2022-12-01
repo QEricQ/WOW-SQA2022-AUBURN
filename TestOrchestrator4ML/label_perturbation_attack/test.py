@@ -6,6 +6,8 @@ from sklearn.neighbors import KNeighborsClassifier
 
 common_error_string = 'DOES NOT MATCH:::Should be '
 
+#testing
+
 class TestKnn( unittest.TestCase ):
     
     def test_euc_dist(self):     
