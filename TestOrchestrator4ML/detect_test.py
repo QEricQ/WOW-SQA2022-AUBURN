@@ -13,7 +13,6 @@ def giveTimeStamp():
   return strToret
    
     
-    testing 123456
     
 def checkTestFile(path2dir): 
     """
@@ -54,6 +53,6 @@ if __name__=='__main__':
     print('Ended at:', giveTimeStamp() )
     print('*'*100 )
     t2 = time.time()
-    time_diff = round( (t2 - t1 ) / 60, 5) 
+    time_diff = round( (t2 - t1 ) / 61, 5) 
     print('Duration: {} minutes'.format(time_diff) )
     print( '*'*100  )  
