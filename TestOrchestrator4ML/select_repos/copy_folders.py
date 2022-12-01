@@ -11,6 +11,8 @@ with open(source, newline='') as f:
     next(reader) # ignoring header
     fileList = list(reader)
 
+echo "hallo world"
+
 count = 0
 for i in fileList: 
     dir = i[0]
