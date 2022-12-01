@@ -13,6 +13,8 @@ def giveTimeStamp():
   return strToret
    
     
+    testing 123456
+    
 def checkTestFile(path2dir): 
     """
     Check if project includes tests.
