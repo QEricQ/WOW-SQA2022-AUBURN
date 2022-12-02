@@ -10,7 +10,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import roc_curve, auc
 from matplotlib import pyplot as plt
 import logging_test
-
+import logging
 
 def euc_dist(x1, x2):
     return np.sqrt(np.sum((x1-x2)**2))
