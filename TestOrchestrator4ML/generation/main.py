@@ -59,7 +59,7 @@ def generateAttack(inp_dir, delta):
                 generateUnitTest(algo, 'loss')
             elif (prob_diff < delta): 
                 generateUnitTest(algo, 'prob')
-    logO.debug('{}*{}*{}*{}'.format('main.py', 'generateAttack')) 
+    logO.debug('{}*{}*{}*{}'.format('main.py', 'generateAttack', str(a), str(b))) 
 
 if __name__=='__main__': 
 
