@@ -6,7 +6,7 @@ import pandas as pd
 from . import py_parser 
 import numpy as np 
 from . import label_perturbation_main
-import logging_test
+from TestOrchestrator4ML import logging_test
 
 
 def giveTimeStamp():
@@ -37,8 +37,7 @@ def generateUnitTest(algo, attack_type):
 
 def generateAttack(inp_dir, delta):
   
-  logO = logging_test.getSQALogger()
-  
+    logO = logging_test.getSQALogger()
     if os.path.exists(inp_dir):
         algo_df = pd.read_csv(inp_dir)
     else:
