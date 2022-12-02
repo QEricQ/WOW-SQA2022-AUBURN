@@ -8,7 +8,8 @@ from sklearn.metrics import accuracy_score
 import logging_test
 
 def generate_malicious_instance(X_train, y_train, g):
-    logO = logging_test.getSQALogger()
+    logger = logging_test.getSQALogger()
+    logger.debug('{}*{}'.format('probability_based_label_perturbation.py', 'generate_malicious_instance'))
     M = X_train.shape[1]
     generated_X = [0] * M
     no_of_elements_in_bin = int(len(y_train)/g)
@@ -30,7 +31,6 @@ def generate_malicious_instance(X_train, y_train, g):
         generated_X[j] = attribute_prob[random.randrange(0, g)]
      
     generated_y = 1  # consider 1 as attacking class
-    logO.debug('{}*{}*{}*{}'.format('probability_based_label_perturbation.py', 'generate_malicious_instance'))
     return generated_X, generated_y
     
     
