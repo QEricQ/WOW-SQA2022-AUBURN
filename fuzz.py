@@ -1,9 +1,9 @@
 import traceback
 
 from typing import List, Any
-from TestOrchestrator4ML_main.generation.main import generateAttack
-from TestOrchestrator4ML_main.label_perturbation_attack.knn import predict, calculate_k, calculate_metrics
-from TestOrchestrator4ML_main.generation.probability_based_label_perturbation import generate_malicious_instance
+from TestOrchestrator4ML.generation.main import generateAttack
+from TestOrchestrator4ML.label_perturbation_attack.knn import predict, calculate_k, calculate_metrics
+from TestOrchestrator4ML.generation.probability_based_label_perturbation import generate_malicious_instance
 
 
 def fuzz(method, fuzzed_args: List[Any]):
