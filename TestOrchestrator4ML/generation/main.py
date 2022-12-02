@@ -6,6 +6,7 @@ import pandas as pd
 from . import py_parser 
 import numpy as np 
 from . import label_perturbation_main
+import logging_test
 
 
 def giveTimeStamp():
@@ -35,6 +36,9 @@ def generateUnitTest(algo, attack_type):
 
 
 def generateAttack(inp_dir, delta):
+  
+  logO = logging_test.getSQALogger()
+  
     if os.path.exists(inp_dir):
         algo_df = pd.read_csv(inp_dir)
     else:
@@ -56,7 +60,8 @@ def generateAttack(inp_dir, delta):
                 generateUnitTest(algo, 'loss')
             elif (prob_diff < delta): 
                 generateUnitTest(algo, 'prob')
-                
+  
+  logO.debug('{}*{}*{}*{}'.format('main.py', 'generateAttack')) 
 
 if __name__=='__main__': 
 
