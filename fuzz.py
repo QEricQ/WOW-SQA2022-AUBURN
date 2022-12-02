@@ -21,7 +21,7 @@ if __name__ == "__main__":
         (
             generateAttack, [
                 (None, 1),
-                (0, None)
+                (0, None),
                 (1, 10),
                 (2.2, 3.3),
                 ("testing", "try"),
