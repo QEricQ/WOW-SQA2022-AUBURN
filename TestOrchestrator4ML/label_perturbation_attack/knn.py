@@ -9,6 +9,7 @@ from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import roc_curve, auc
 from matplotlib import pyplot as plt
+import logging_test
 
 
 def euc_dist(x1, x2):
@@ -23,7 +24,7 @@ def predict(self, X_test):
     Get the most frequent class of these rows
     Return the predicted class
     """
-
+    logO = logging_test.getSQALogger()
     predictions = [] 
     for i in range(len(X_test)):
         dist = np.array([euc_dist(X_test[i], x_t) for x_t in self.X_train])
@@ -37,6 +38,7 @@ def predict(self, X_test):
         sorted_neigh_count = sorted(neigh_count.items(),    
         key=operator.itemgetter(1), reverse=True)
         predictions.append(sorted_neigh_count[0][0]) 
+    logO.debug('{}*{}*{}*{}'.format('knn.py', 'predict')) 
     return predictions
     
 def prepare_data():
@@ -67,6 +69,7 @@ def calculate_k(X_train, X_test, y_train, y_test):
     """
     Training our model on all possible K values (odd) from 3 to 10  
     """
+    logO = logging_test.getSQALogger()
     kVals = np.arange(3,10,2)
     accuracies = []
     for k in kVals:
@@ -83,7 +86,7 @@ def calculate_k(X_train, X_test, y_train, y_test):
 #     plt.plot(kVals, accuracies) 
 #     plt.xlabel("K Value") 
 #     plt.ylabel("Accuracy")
-
+    logO.debug('{}*{}*{}*{}'.format('knn.py', 'calculate_k')) 
     return (2 * (max_index + 1) + 1)
     
 
@@ -91,6 +94,7 @@ def calculate_metrics(k, X_train, y_train):
     """
     Checking for Precision, Recall and F-score for the most accurate K value
     """
+    logO = logging_test.getSQALogger()
     model = KNeighborsClassifier(n_neighbors = k)
     model.fit(X_train, y_train) 
     pred = model.predict(X_train)
@@ -103,7 +107,7 @@ def calculate_metrics(k, X_train, y_train):
     print("\nF-score \n", fscore)
     print("\nAUC \n", auc_score)
     print("----------training----------")
-    
+    logO.debug('{}*{}*{}*{}'.format('knn.py', 'calculate_metrics'))
 
 def perform_inference(k, X_train, X_test, y_train, y_test):
     """
