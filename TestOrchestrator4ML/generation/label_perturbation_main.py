@@ -4,9 +4,9 @@ import argparse
 from datetime import datetime
 import numpy as np
 from . import attack_model
-import random_label_perturbation
-import loss_based_label_perturbation
-import probability_based_label_perturbation
+from . import random_label_perturbation
+from . import loss_based_label_perturbation
+from . import probability_based_label_perturbation
 
 
 
