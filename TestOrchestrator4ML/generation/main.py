@@ -36,7 +36,8 @@ def generateUnitTest(algo, attack_type):
 
 
 def generateAttack(inp_dir, delta):
-    logO = logging_test.getSQALogger()
+    logger = logging_test.getSQALogger()
+    logger.debug('{}*{}'.format('main.py', 'generateAttack'))
     if os.path.exists(inp_dir):
         algo_df = pd.read_csv(inp_dir)
     else:
@@ -58,7 +59,6 @@ def generateAttack(inp_dir, delta):
                 generateUnitTest(algo, 'loss')
             elif (prob_diff < delta): 
                 generateUnitTest(algo, 'prob')
-    logO.debug('{}*{}'.format('main.py', 'generateAttack'))
 
 if __name__=='__main__': 
 
