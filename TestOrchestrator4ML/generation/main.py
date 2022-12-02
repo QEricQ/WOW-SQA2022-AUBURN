@@ -36,8 +36,7 @@ def generateUnitTest(algo, attack_type):
 
 
 def generateAttack(inp_dir, delta):
-    ##initiated logging 
-    logging.basicConfig(filename='Forensics.TEST.log', filemode='w', fformat='%(asctime)s:%(data_frame)s:%(message)s', datefmt='%d-%b-%y %H-%M-%S')
+    logO = logging_test.getSQALogger()
     if os.path.exists(inp_dir):
         algo_df = pd.read_csv(inp_dir)
     else:
@@ -59,6 +58,7 @@ def generateAttack(inp_dir, delta):
                 generateUnitTest(algo, 'loss')
             elif (prob_diff < delta): 
                 generateUnitTest(algo, 'prob')
+    logO.debug('{}*{}'.format('main.py', 'generateAttack'))
 
 if __name__=='__main__': 
 
